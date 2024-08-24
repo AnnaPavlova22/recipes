@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today Recipe</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="<%= mealName ? 'dish-selected' : 'default-page' %>">
+    <h1>Random recipe generator</h1>
+
+    <div class = "drop-down"> 
+    <form action="/recipe"method="POST">
+        <label for="categories">Choose a category:</label>
+
+        <select name="categories" id="categories">
+            <option value="beef" <%= mealCategory === 'Beef' ? 'selected' : '' %>>Beef</option>
+            <option value="chicken" <%= mealCategory === 'Chicken' ? 'selected' : '' %>>Chicken</option>
+            <option value="goat" <%= mealCategory === 'Goat' ? 'selected' : '' %>>Goat</option>
+            <option value="pork" <%= mealCategory === 'Pork' ? 'selected' : '' %>>Pork</option>
+            <option value="lamb" <%= mealCategory === 'Lamb' ? 'selected' : '' %>>Lamb</option>
+            <option value="seafood" <%= mealCategory === 'Seafood' ? 'selected' : '' %>>Seafood</option>
+            <option value="pasta" <%= mealCategory === 'Pasta' ? 'selected' : '' %>>Pasta</option>
+            <option value="dessert" <%= mealCategory === 'Dessert' ? 'selected' : '' %>>Dessert</option>
+            <option value="breakfast" <%= mealCategory === 'Breakfast' ? 'selected' : '' %>>Breakfast</option>
+            <option value="side" <%= mealCategory === 'Side dish' ? 'selected' : '' %>>Side dish</option>
+            <option value="starter" <%= mealCategory === 'Starter' ? 'selected' : '' %>>Starter</option>
+            <option value="vegan" <%= mealCategory === 'Vegan' ? 'selected' : '' %>>Vegan</option>
+            <option value="vegetarian" <%= mealCategory === 'Vegetarian' ? 'selected' : '' %>>Vegetarian</option>
+            <option value="misc" <%= mealCategory === 'Miscellaneous' ? 'selected' : '' %>>Miscellaneous</option>
+        </select>
+        <input type="submit" value="Show recipe">
+    </form>
+    </div>
+
+    <div class = "random">
+    <form  action="/recipe" method="POST">
+        <label for="random">Or select a random recipe:</label>
+        <button type="submit" name="random">Random choice</button>
+    </form>
+    </div>
+
+    <% if (mealName && mealCategory &&mealImage) {%>
+        <!-- Display recipe details only if they exist -->
+
+    <div class="dish_name"></div>
+        <h2><%= mealName %></h2>
+        <h3>Category: <%= mealCategory %></h3>
+    </div>
+
+    <div class="main-container">
+        <div class="image">
+    <img src="<%= mealImage %>" alt="dish image">
+        </div>
+        <div class="ingredient">
+            <h4>Ingrediants:</h4>
+            <ul>
+                <% ingredients.forEach(function(item) {%>
+                    <li><%=item.measure %> <%= item.ingredient %></li>
+
+            <% }) %>
+            </ul>
+        </div>
+    </div>
+
+        <div class="instruction">
+        <h4>How to make:</h4>
+
+        <% mealInstruction.forEach(function(paragraph) {%>
+            <p><%= paragraph %></p>
+
+        <%});%>
+
+    <% } else {%>
+        <h2>Hungry? Let's pick a recipe!</h2>
+
+        <% }%>
+        </div>
+    <footer>
+        <p> With 💕 from Anna Pavlova</p>
+        <p> 2024</p>
+    </footer>
+    
+</body>
+</html>

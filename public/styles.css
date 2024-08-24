@@ -1,0 +1,174 @@
+/* Default page styling */
+.default-page {
+    background-color: #F2E8C6; /* Light background */
+    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5em;
+    background-image: url("images/cooking.avif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1 {
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: #800000; /* Tomato color */
+    margin-top: 40px;
+}
+
+.drop-down, .random {
+    flex-direction: column; /* Align elements vertically */
+    align-items: center; /* Center elements horizontally */
+    margin-bottom: 20px; /* Space between the two sections */
+}
+
+/* Styling for the select, input, and button elements */
+select, input, button {
+    font-size: 1em;
+    font-family: "Montserrat", sans-serif; 
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px; /* Set a fixed width for consistency */
+}
+
+select {
+    width: auto;
+}
+
+
+input[type="submit"],
+button {
+    background-color: #d87265; /* Button color matching the header */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #982B1C; /* Darker shade on hover */
+}
+
+
+/* Styling recipe page */
+
+.dish-selected {
+    background-color: #F2E8C6; 
+    color: #222;
+    font-family: "Montserrat", sans-serif;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.dish-selected h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+.dish-selected .drop-down, .dish-selected .random{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;  
+}
+
+.dish-selected select, 
+.dish-selected input, 
+.dish-selected button {
+    font-size: 1em;
+    font-family: "Montserrat", sans-serif; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto;
+    /* margin-top: 5px; */
+    width: auto;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: center; /* Center the entire content horizontally */
+    margin-bottom: 40px;
+}
+
+.main-container > div {
+    margin: 20px auto;
+}
+
+.ingredient {
+    flex: 2; /* Allow the ingredients to take up available space */
+    background-color: #f1dcda;
+    border-color: #dda59e;
+    border-style: solid;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 0px;
+    text-align: left; /* Keep text aligned to the left */
+}
+
+h4 {
+    margin-top: 0px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+
+img {
+    border-radius: 8px;
+    width: 70%;
+    margin: auto;
+}
+
+ul {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+}
+
+ul li {
+    margin-bottom: 8px;
+    list-style-position: inside;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.instruction {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+    margin-bottom: 10%;
+}
+
+footer {
+    background-color: #982B1C;
+    padding: 20px;
+    color: #F2E8C6;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: auto;    
+}
+
+@media (max-width: 990px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}
